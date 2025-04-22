@@ -3,5 +3,6 @@ charts/postgres-operator/values-crr-dev.yaml filter=crypt diff=crypt merge=crypt
 charts/postgres-operator/values-crr-prod.yaml filter=crypt diff=crypt merge=crypt
 charts/postgres-operator/values-ctr-dev.yaml filter=crypt diff=crypt merge=crypt
 charts/postgres-operator/values-ctr-prod.yaml filter=crypt diff=crypt merge=crypt
-charts/postgres-operator/values-test.yaml filter=crypt diff=crypt merge=crypt
 charts/pod-config.yaml filter=crypt diff=crypt merge=crypt
+charts/pod-config-production.yaml filter=crypt diff=crypt merge=crypt
+charts/pod-config-pre-prod.yaml filter=crypt diff=crypt merge=crypt
