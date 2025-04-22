@@ -28,6 +28,15 @@ kubectl apply -f pod-config-production.yaml
 kubectl apply -f pod-config-dev.yaml
 ```
 
+Before you install the helm-chart, do a helm diff to check what will you change
+
+```bash
+# Production:
+helm template --is-upgrade postgres-operator . -f values-crr-prod.yaml --dry-run | kubectl diff -f - > helm-inst-diff-prod.diff
+# Dev:
+helm template --is-upgrade postgres-operator . -f values-crr-dev.yaml --dry-run | kubectl diff -f - > helm-inst-diff-dev.diff
+```
+
 Now install the postgres-operator helm-chart from this repo
 
 ```bash
