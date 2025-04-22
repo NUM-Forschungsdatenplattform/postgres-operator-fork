@@ -1,3 +1,50 @@
+# Highmed Docs
+
+This Repo is a Fork of the Zalando Postgres Operator Repo: https://github.com/zalando/postgres-operator
+
+## How to use this Repo
+
+Relevant Files:
+
+```bash
+charts/pod-config-dev.yaml
+charts/pod-config-production.yaml
+charts/postgres-operator/values-crr-dev.yaml
+charts/postgres-operator/values-crr-prod.yaml
+```
+
+Go to the `charts` folder 
+
+```bash
+cd charts
+```
+
+Apply the relevant config-map `pod-config-*.yaml` into the Cluster 
+
+```bash
+# Production:
+kubectl apply -f pos-config-production.yaml
+# Dev:
+kubectl apply -f pos-config-dev.yaml
+```
+
+Now install the postgres-operator helm-chart from this repo
+
+```bash
+# Production:
+helm upgrade postgres-operator ./postgres-operator-1.8.2.tgz -f values-crr-prod.yaml -n production-postgres-cluster
+# Dev:
+helm upgrade postgres-operator ./postgres-operator-1.8.2.tgz -f values-crr-dev.yaml -n postgres-operator
+```
+
+For **Production** after you installed the helm-chart you have to edit the postgres-operator deployment and change the replicas to `0`
+
+```bash
+# Production:
+kubectl edit deploy/postgres-operator -n production-postgres-cluster
+```
+
+# Official Zalando Docs:
 # Postgres Operator
 
 
