@@ -23,9 +23,9 @@ Apply the relevant config-map `pod-config-*.yaml` into the Cluster
 
 ```bash
 # Production:
-kubectl apply -f pos-config-production.yaml
+kubectl apply -f pod-config-production.yaml
 # Dev:
-kubectl apply -f pos-config-dev.yaml
+kubectl apply -f pod-config-dev.yaml
 ```
 
 Now install the postgres-operator helm-chart from this repo
